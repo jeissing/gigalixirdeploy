@@ -1,5 +1,14 @@
 # Gigalixirdeploy
 
+# ASDF
+- https://github.com/smashedtoatoms/asdf-postgres
+
+
+# Setup
+- asdf install
+- pg_ctl start + createdb default + createuser -s postgres (psql -d default -U postgres)
+
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
