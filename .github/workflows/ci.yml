@@ -20,8 +20,8 @@ jobs:
           --health-retries 5
     strategy: 
       matrix:
-        otp: [23.1]
-        elixir: [1.11.1]
+        otp: [24.0.1]
+        elixir: [1.12.0]
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-elixir@v1
@@ -31,7 +31,7 @@ jobs:
     - name: Setup Node
       uses: actions/setup-node@v1
       with: 
-        node-version: 14.15.0
+        node-version: 14.17.0
     - name: Install deps
       run: |
         mix deps.get
