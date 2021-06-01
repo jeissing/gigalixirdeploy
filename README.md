@@ -2,6 +2,7 @@
 
 # ASDF
 - https://github.com/smashedtoatoms/asdf-postgres
+- https://thinkingelixir.com/elixir-1-12-and-your-first-mix-install-script/
 
 
 # Setup
