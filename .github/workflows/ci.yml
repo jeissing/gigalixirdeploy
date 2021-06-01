@@ -1,5 +1,8 @@
 name: Test and Deploy
-on: push
+on: 
+  push:
+    branches: [master]
+  workflow_dispatch:
 
 jobs: 
   test: 
