@@ -1,5 +1,5 @@
 # Gigalixirdeploy
-- test
+- test1
 
 # ASDF
 - https://github.com/smashedtoatoms/asdf-postgres
