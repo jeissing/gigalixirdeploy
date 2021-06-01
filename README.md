@@ -9,6 +9,9 @@
 - asdf install
 - pg_ctl start + createdb default + createuser -s postgres (psql -d default -U postgres)
 
+# Github Actions
+- https://github.community/t/mysql-service-never-comes-up-healthy-in-action/16890/4
+
 
 To start your Phoenix server:
 
