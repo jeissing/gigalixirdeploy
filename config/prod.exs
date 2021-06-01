@@ -68,4 +68,4 @@ config :gigalixirdeploy, Gigalixirdeploy.Repo,
   adapter: Ecto.Adapters.Postgres,
   url: System.get_env("DATABASE_URL"),
   ssl: true,
-  pool_size: 1
+  pool_size: 2
