@@ -2,7 +2,10 @@
 - test1
 
 # TOODs
-- ExCoveralls GitHubActions
+- ExCoveralls GitHubActions, check gitignore (gigayizere)
+- Desktop Build ( https://itnext.io/enforcing-code-quality-in-elixir-20f87efc7e66 )
+- Remove plt ordner mix.exs
+- add Chrome or headless driver
 
 # CI/CD
 - https://hashrocket.com/blog/posts/build-the-ultimate-elixir-ci-with-github-actions
