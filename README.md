@@ -5,6 +5,7 @@
 - https://hashrocket.com/blog/posts/build-the-ultimate-elixir-ci-with-github-actions
 - https://dev.to/mnishiguchi/basic-github-actions-setup-for-phoenix-apps-m3g
 - https://devato.com/post/github-actions-for-phoenix
+- https://itnext.io/enforcing-code-quality-in-elixir-20f87efc7e66
 -
 
 # ASDF
