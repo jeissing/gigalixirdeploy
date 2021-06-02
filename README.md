@@ -1,6 +1,9 @@
 # Gigalixirdeploy
 - test1
 
+# CI/CD
+- https://hashrocket.com/blog/posts/build-the-ultimate-elixir-ci-with-github-actions
+
 # ASDF
 - https://github.com/smashedtoatoms/asdf-postgres
 - https://thinkingelixir.com/elixir-1-12-and-your-first-mix-install-script/
