@@ -8,6 +8,8 @@
 - https://github.com/smashedtoatoms/asdf-postgres
 - https://thinkingelixir.com/elixir-1-12-and-your-first-mix-install-script/
 
+# ElxirLS Issues
+- https://thinkingelixir.com/vs-code-broken-for-elixir/#Open_a_single_Elixir_project_at_the_root
 
 # Setup
 - asdf install
