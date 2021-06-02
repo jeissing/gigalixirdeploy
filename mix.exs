@@ -11,7 +11,8 @@ defmodule Gigalixirdeploy.MixProject do
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
       dialyzer: dialyzer(),
-      deps: deps()
+      deps: deps(),
+      test_coverage: [tool: ExCoveralls]
     ]
   end
 
@@ -55,7 +56,9 @@ defmodule Gigalixirdeploy.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
       {:dialyxir, "~> 1.1", only: [:dev, :test], runtime: false},
-      {:sobelow, "~> 0.11.1", only: :dev}
+      {:sobelow, "~> 0.11.1", only: :dev},
+      {:excoveralls, "~> 0.14.1", only: [:test]}
+
     ]
   end
 
