@@ -58,9 +58,16 @@ jobs:
       run: |
         mix deps.get
         npm install --prefix assets
+
     - name: Check formatting
       run: mix format --check-formatted
-    - run: mix test
+
+    - name: Run Credo
+      run: mix credo --strict
+
+    - name: Run Unittests 
+      run: mix test
+      
   deploy:
     needs: test
     if: github.ref == 'refs/heads/master'
