@@ -59,7 +59,7 @@ jobs:
         mix deps.get
         npm install --prefix assets
     - name: Check formatting
-      run: mix formatting --check-formatted
+      run: mix format --check-formatted
     - run: mix test
   deploy:
     needs: test
