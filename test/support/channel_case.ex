@@ -29,10 +29,10 @@ defmodule GigalixirdeployWeb.ChannelCase do
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Gigalixirdeploy.Repo)
+    :ok = Sandbox.checkout(Gigalixirdeploy.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Gigalixirdeploy.Repo, {:shared, self()})
+      Sandbox.mode(Gigalixirdeploy.Repo, {:shared, self()})
     end
 
     :ok

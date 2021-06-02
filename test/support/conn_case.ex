@@ -14,7 +14,7 @@ defmodule GigalixirdeployWeb.ConnCase do
   by setting `use GigalixirdeployWeb.ConnCase, async: true`, although
   this option is not recommended for other databases.
   """
-
+  alias Ecto.Adapters.SQL.Sandbox
   use ExUnit.CaseTemplate
 
   using do
@@ -32,10 +32,10 @@ defmodule GigalixirdeployWeb.ConnCase do
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Gigalixirdeploy.Repo)
+    :ok = Sandbox.checkout(Gigalixirdeploy.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Gigalixirdeploy.Repo, {:shared, self()})
+      Sandbox.mode(Gigalixirdeploy.Repo, {:shared, self()})
     end
 
     {:ok, conn: Phoenix.ConnTest.build_conn()}
