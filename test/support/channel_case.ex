@@ -14,7 +14,7 @@ defmodule GigalixirdeployWeb.ChannelCase do
   by setting `use GigalixirdeployWeb.ChannelCase, async: true`, although
   this option is not recommended for other databases.
   """
-
+  alias Ecto.Adapters.SQL.Sandbox
   use ExUnit.CaseTemplate
 
   using do
