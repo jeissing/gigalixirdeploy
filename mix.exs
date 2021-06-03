@@ -58,7 +58,6 @@ defmodule Gigalixirdeploy.MixProject do
       {:dialyxir, "~> 1.1", only: [:dev, :test], runtime: false},
       {:sobelow, "~> 0.11.1", only: :dev},
       {:excoveralls, "~> 0.14.1", only: [:test]}
-
     ]
   end
 
