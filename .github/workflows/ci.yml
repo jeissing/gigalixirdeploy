@@ -22,6 +22,9 @@ jobs:
       matrix:
         otp: [24.0.1]
         elixir: [1.12.0]
+    env:
+      MIX_ENV: test
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
     - uses: actions/checkout@v2
     - name: Setup elixir
@@ -67,7 +70,7 @@ jobs:
       run: mix credo --strict
 
     - name: Run Unittests 
-      run: mix test
+      run: mix coveralls.github
 
     - name: Cache PLT 
       uses: actions/cache@v1
