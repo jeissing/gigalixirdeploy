@@ -1,0 +1,14 @@
+name: AcceptanceTest
+
+on: 
+  workflow_run:
+    worklfows: 
+      - Test and Deploy
+    types:
+      - completed
+
+jobs:
+  test-job:
+    name: Test Step
+    runs-on: ubuntu-18.04
+      -run: env
