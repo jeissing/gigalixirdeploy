@@ -11,4 +11,5 @@ jobs:
   test-job:
     name: Test Step
     runs-on: ubuntu-18.04
+    steps:
       -run: env
