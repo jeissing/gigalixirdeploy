@@ -24,8 +24,8 @@ jobs:
         elixir: [1.12.0]
     steps:
     - run:  echo $GITHUB_RUN_ID
-    - run: echo "App" >> $GITHUB_RUN_ID
-    - run: echo $GITHUB_RUN_ID
+    - run: echo APP_NAME=$GITHUB_RUN_ID >> $GITHUB_ENV
+    - run: echo $APP_NAME
     - uses: actions/checkout@v2
     - name: Setup elixir
       uses: actions/setup-elixir@v1
