@@ -103,6 +103,7 @@ jobs:
     - run: pip3 install gigalixir
     - run: gigalixir login -e ${{secrets.GIGALIXIR_USERNAME}} -y -p ${{ secrets.GIGALIXIR_PASSWORD }}
     - run: gigalixir create --name myapp-${{ env.APP_ID }} --cloud gcp --region europe-west1
+    - run: gigalixir pg:create --app_name myapp-${{ env.APP_ID }} --free -y
 
     - uses: mhanberg/gigalixir-action@v0.6.1
       with:
