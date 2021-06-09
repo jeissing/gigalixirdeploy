@@ -1,6 +1,6 @@
 # New 
 gigalixirdeploy
-test
+testasdf
 gigalixr ps:scale --replicas=0
 
 gigalixir ps:scale --replicas=0 --app_name gigalixirdeploy
