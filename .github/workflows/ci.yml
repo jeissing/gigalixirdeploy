@@ -25,7 +25,7 @@ jobs:
     steps:
     - run:  echo $GITHUB_RUN_ID
     - run: echo APP_ID=$GITHUB_RUN_ID >> $GITHUB_ENV
-    - run: echo App_NAME=MyGiaglixir >> $GITHUB_ENV
+    - run: echo "App_NAME=MyGiaglixir" >> $GITHUB_ENV
     - run: echo ${{ env.APP_NAME }}-${{ env.APP_ID }}
     - uses: actions/checkout@v2
     - name: Setup elixir
