@@ -1,3 +1,16 @@
+# alternative cleanup
+- name: The job cleanup
+      if: ${{ always() }}
+      run: | 
+        gigalixir ps:scale --replicas=0 --app_name myapp-${{ env.APP_ID }}
+        echo DATABASE_ID=$(gigalixir pg --app_name myapp-${{ env.APP_ID }} | jq '.[].id') >> $GITHUB_ENV
+        gigalixir pg:destroy -y -d ${{ env.DATABASE_ID}}
+        gigalixir apps:destroy -y --app_name myapp-${{ env.APP_ID }}
+        echo $DATABASE_ID
+
+
+
+
 # New 
 gigalixirdeploy
 testasdf
