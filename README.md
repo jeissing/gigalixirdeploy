@@ -1,5 +1,30 @@
+# New 
+gigalixirdeploy
+
+gigalixr ps:scale --replicas=0
+
+gigalixir ps:scale --replicas=0 --app_name gigalixirdeploy
+gigalixir pg:destroy -y -d 7e8fbda4-0080-46f6-a302-6575bb3bd320
+gigalixir apps:destroy -y --app_name gigalixirdeploy 
+
+
+gigalixir create --name a1234567 --cloud gcp --region europe-west1
+gigalixir pg:create --app_name a1234567 --free -y
+gigalixir pg:create --app_name a1234567 --cloud gcp --region V2018-us-central1 --free --yes
+
+
 # Gigalixirdeploy
 - test1
+
+# Remove Gigalixir App
+- gigalixir ps:scale --replicas=0 --app_name gigalixirdeploy
+- gigalixir pg:destroy -y -d 7e8fbda4-0080-46f6-a302-6575bb3bd320
+- gigalixir apps:destroy -y --app_name gigalixirdeploy 
+
+# Create Gigalixir App
+- gigalixir create --name a1234567 --cloud gcp --region europe-west1
+
+
 
 # TOODs
 - ExCoveralls GitHubActions, check gitignore (gigayizere)
