@@ -12,6 +12,8 @@ gigalixir create --name a1234567 --cloud gcp --region europe-west1
 gigalixir pg:create --app_name a1234567 --free -y
 gigalixir pg:create --app_name a1234567 --cloud gcp --region V2018-us-central1 --free --yes
 
+# Cleanup und advanced workflow
+- https://werf.io/documentation/v1.2/advanced/ci_cd/github_actions.html
 
 # Gigalixirdeploy
 - test1
