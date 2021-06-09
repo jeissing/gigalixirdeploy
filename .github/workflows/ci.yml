@@ -113,5 +113,5 @@ jobs:
         GIGALIXIR_APP: myapp-${{ env.APP_ID }}
         MIGRATIONS: false
 
-    - run: echo "DATABASE_ID=gigalixir pg -a myapp-${{ env.APP_ID }}" >> $GITHUB_ENV
+    - run: echo "DATABASE_ID= $(echo gigalixir pg -a myapp-${{ env.APP_ID }})" >> $GITHUB_ENV
     - run: echo $DATABASE_ID
