@@ -113,6 +113,8 @@ jobs:
         GIGALIXIR_APP: myapp-${{ env.APP_ID }}
         MIGRATIONS: false
 
+
+    - uses: actions/checkout@v2
     - uses: nanasess/setup-chromedriver@master
       with:
         # Optional: do not specify to match Chrome's version
@@ -121,7 +123,7 @@ jobs:
       export DISPLAY=:99
       chromedriver --url-base=/wd/hub &
       sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional  
-      
+
     - run: gigalixir ps:scale --replicas=0 --app_name myapp-${{ env.APP_ID }}
     - run: echo DATABASE_ID=$(gigalixir pg --app_name myapp-${{ env.APP_ID }} | jq '.[].id') >> $GITHUB_ENV
     - run: gigalixir pg:destroy -y -d ${{ env.DATABASE_ID}}
