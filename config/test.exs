@@ -16,7 +16,9 @@ config :gigalixirdeploy, Gigalixirdeploy.Repo,
 # you can enable the server option below.
 config :gigalixirdeploy, GigalixirdeployWeb.Endpoint,
   http: [port: 4002],
-  server: false
+  server: true
 
 # Print only warnings and errors during test
 config :logger, level: :warn
+
+config :hound, driver: "chrome driver", browser: "chrome_headless"

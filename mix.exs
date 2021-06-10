@@ -57,7 +57,8 @@ defmodule Gigalixirdeploy.MixProject do
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
       {:dialyxir, "~> 1.1", only: [:dev, :test], runtime: false},
       {:sobelow, "~> 0.11.1", only: [:dev, :test], runtime: false},
-      {:excoveralls, "~> 0.14.1", only: [:test]}
+      {:excoveralls, "~> 0.14.1", only: [:test]},
+      {:hound, "~> 1.1"}
     ]
   end
 
