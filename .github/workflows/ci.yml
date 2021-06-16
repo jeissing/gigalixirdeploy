@@ -3,8 +3,7 @@ on:
   push:
     branches: [master]
   workflow_dispatch:
-env:
-  MIX_ENV: test
+
 
 jobs: 
   test: 
@@ -92,7 +91,8 @@ jobs:
         chromedriver --url-base=/wd/hub &
         sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 &  
 
-    - name: Run acceptancetests 
+    - name: Run acceptancetests
+      env: MIX_ENV: test
       run: mix test --only acceptance
       
   deploy:
