@@ -67,7 +67,7 @@ jobs:
       run: mix credo --strict
 
     - name: Run Unittests 
-      run: mix test
+      run: mix test --exclude acceptance
 
     - name: Cache PLT 
       uses: actions/cache@v1
