@@ -120,6 +120,10 @@ jobs:
         export DISPLAY=:99
         chromedriver --url-base=/wd/hub &
         sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 &  
+
+
+    - name: Run Unittests 
+      run: mix test --only acceptance
         
     - run: gigalixir ps:scale --replicas=0 --app_name myapp-${{ env.APP_ID }}
     - run: echo DATABASE_ID=$(gigalixir pg --app_name myapp-${{ env.APP_ID }} | jq '.[].id') >> $GITHUB_ENV
