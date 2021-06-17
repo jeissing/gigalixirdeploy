@@ -27,7 +27,7 @@ defmodule CabbageTestHelper do
     {result_fix.(Process.get(:capture_result)), output}
   end
 
-  defp versioned_callbacks() do
+  defp versioned_callbacks do
     System.version()
     |> Version.compare("1.6.6")
     |> case do
