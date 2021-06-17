@@ -1,4 +1,5 @@
 Code.require_file("test_helper.exs", __DIR__)
+
 defmodule Accetance.BddTest do
   use ExUnit.Case
 
@@ -29,6 +30,7 @@ defmodule Accetance.BddTest do
           assert state == [:initial]
         end
       end
+
       {result, _output} = CabbageTestHelper.run()
       assert result == %{failures: 0, skipped: 0, total: 1, excluded: 0}
     end
