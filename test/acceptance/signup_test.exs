@@ -5,6 +5,7 @@ defmodule Accetance1.BddTest do
   use Hound.Helpers
 
   describe "Sign up" do
+    @tag :acceptance
     test "Sign up successfully" do
       defmodule SignupTest do
         use Cabbage.Feature, file: "signup.feature"
