@@ -9,15 +9,20 @@ defmodule Accetance.BddTest do
         use Cabbage.Feature, file: "simple.feature"
 
         setup do
+          on_exit(fn ->
+            IO.puts("Scenario completed")
+          end)
           {:ok, %{state: [:initial]}}
         end
 
         defgiven ~r/^I provide Given$/, _vars, %{state: state} do
           [:given | state]
+          #{:ok, %{state: [:given | state]}}
         end
 
         defgiven ~r/^I provide And$/, _vars, %{state: state} do
           assert [:initial] == state
+          # assert [:given] == state
           nil
         end
 
