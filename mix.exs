@@ -42,6 +42,7 @@ defmodule Gigalixirdeploy.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:bcrypt_elixir, "~> 2.0"},
       {:phoenix, "~> 1.5.9"},
       {:phoenix_ecto, "~> 4.1"},
       {:ecto_sql, "~> 3.4"},
@@ -59,7 +60,8 @@ defmodule Gigalixirdeploy.MixProject do
       {:sobelow, "~> 0.11.1", only: [:dev, :test], runtime: false},
       {:excoveralls, "~> 0.14.1", only: [:test]},
       {:hound, "~> 1.1"},
-      {:cabbage, "~> 0.3.6"}
+      {:cabbage, "~> 0.3.6"},
+      {:phx_gen_auth, "~> 0.7.0", only: [:dev], runtime: false}
     ]
   end
 
