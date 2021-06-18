@@ -8,7 +8,7 @@
         gigalixir apps:destroy -y --app_name myapp-${{ env.APP_ID }}
         echo $DATABASE_ID
 # test
-- again
+- again fuck
 
 
 # New 
