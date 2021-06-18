@@ -79,8 +79,8 @@ jobs:
       run: |
         mkdir -p priv/plts
         mix dialyzer --plt
-    - name: Run Dialyzer
-      run: mix dialyzer --no-check --halt-exit-status
+    #- name: Run Dialyzer
+    #  run: mix dialyzer --no-check --halt-exit-status
       
     - uses: nanasess/setup-chromedriver@master
       

@@ -35,3 +35,7 @@ npm-debug.log
 
 # The developer specifig configs
 /config/dev.local.exs
+
+# Dialyzer
+/priv/plts/*.plt
+/priv/plts/*.plt.hash
