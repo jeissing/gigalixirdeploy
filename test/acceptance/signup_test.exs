@@ -25,7 +25,12 @@ defmodule Accetance1.BddTest do
         end
 
         defwhen ~r/^I sign up with the valid details$/, _vars, %{state: state} do
-          navigate_to("http://localhost:4002")
+          navigate_to("http://localhost:4002/users/register")
+          element = find_element(:name, "user[email]")
+          fill_field(element, "josef.eissing@outlook.com ~!")
+          element = find_element(:name, "user[password]")
+          fill_field(element, "josef.eissing@outlook.com ~!")
+
           assert [:initial] == state
           :ok
         end
