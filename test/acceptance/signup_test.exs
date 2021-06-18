@@ -42,7 +42,7 @@ defmodule Accetance1.BddTest do
       end
 
       {result, _output} = CabbageTestHelper.run()
-      assert result == %{failures: 0, skipped: 0, total: 1, excluded: 0}
+      assert result == %{failures: 0, skipped: 0, total: 1, excluded: 1}
     end
   end
 end
