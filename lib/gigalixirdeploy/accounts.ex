@@ -4,7 +4,7 @@ defmodule Gigalixirdeploy.Accounts do
   """
 
   import Ecto.Query, warn: false
-  alias Gigalixirdeploy.Accounts.{User, UserToken, UserNotifier}
+  alias Gigalixirdeploy.Accounts.{User, UserNotifier, UserToken}
   alias Gigalixirdeploy.Repo
 
   ## Database getters
