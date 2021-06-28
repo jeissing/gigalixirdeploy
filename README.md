@@ -1,3 +1,7 @@
+# PlantUml
+- https://joymonscode.blogspot.com/search/label/plantUML
+
+
 # alternative cleanup
 - name: The job cleanup
       if: ${{ always() }}
