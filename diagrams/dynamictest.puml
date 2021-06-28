@@ -1,0 +1,30 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Dynamic.puml
+
+Person(user, "User1")
+Person(user2, "User2")
+System(system, "System")
+
+' if sprite starts with &, sprite defines a OpenIconic, details see https://useiconic.com/open/
+Rel_D(user, system, "requests", "async message", "if sprite starts with &, it defines a OpenIconic like &envelope-closed", $sprite = "&envelope-closed")
+
+' normal sprites are too big 
+Rel_R(user, user2, "informs", "courier", "normal sprites are too big", "person2")
+
+' special smaller sprites have to be used
+sprite $triangle {
+    00000000000
+    00000F00000
+    0000FBF0000
+    0000FBF0000
+    000F999F000
+    000F999F000
+    00F66666F00
+    00F66666F00
+    0F3333333F0
+    0F3333333F0
+    0FFFFFFFFF0
+    00000000000
+}
+Rel(user, system, "orders", "http", "only small sprites looks ok, like the small triangle", "triangle")
+@enduml
