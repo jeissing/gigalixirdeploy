@@ -1,5 +1,6 @@
 {
     "plantuml.commandArgs": [
     
-    ]
+    ],
+    "asciidoc.use_kroki": true
 }

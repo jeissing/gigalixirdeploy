@@ -1,5 +1,5 @@
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include ./c4templtes/C4_Context.puml
 
 !$COLOR_A_5 = "#7f3b08"
 !$COLOR_A_4 = "#b35806"

@@ -1,5 +1,6 @@
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include ./c4templtes/C4_Container.puml
+
 HIDE_STEREOTYPE()
 
 Person(a, "A")
