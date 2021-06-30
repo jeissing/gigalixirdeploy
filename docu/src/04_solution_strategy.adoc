@@ -1,4 +1,8 @@
 [[section-solution-strategy]]
+:source-highlighter: highlightjs
+:highlightjs-languages: elixir
+:main_sourcepath: ../../lib/
+
 == Lösungsstrategie
 
 [role="arc42help"]
@@ -22,8 +26,31 @@ Motivieren Sie, ausgehend von Aufgabenstellung, Qualitätszielen und Randbedingu
 Vermeiden Sie redundante Beschreibungen und verweisen Sie eher auf weitere Ausführungen in Folgeabschnitten.
 ****
 
+[source, javascript, linenums]
+----
+# This program prints hello, world ! // <1>
+printf('Hello, world!') //<2>
+----
+<1> bla bla
+<2> bla bal
+
+[source, elixir, linenums, indent=2]
+----
+defp deliver(to, body) do
+  require Logger #<1>
+  Logger.debug(body) #<2>
+  {:ok, %{to: to, body: body}}
+end
+----
+
+[source, elixir, linenums, indent=2]
+----
+include::{main_sourcepath}gigalixirdeploy/accounts.ex[tags=GetUserEmail]
+----
+
 
 == Test
 .Test Diagram 1 without 2nd level include
-plantuml::../../diagrams/context.puml[]
+plantuml::../../diagrams/test.puml[]
+
 
