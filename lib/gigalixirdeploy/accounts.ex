@@ -23,7 +23,7 @@ defmodule Gigalixirdeploy.Accounts do
   """
   # tag::GetUserEmail[]
   def get_user_by_email(email) when is_binary(email) do
-    Repo.get_by(User, email: email) #<1>
+    Repo.get_by(User, email: email)
   end
 
   # end::GetUserEmail[]
