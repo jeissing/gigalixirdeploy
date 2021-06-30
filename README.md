@@ -1,4 +1,5 @@
 # Antora
+- install
 - https://docs.antora.org/antora/2.3/install-and-run-quickstart/
 - npm i -g @antora/cli @antora/site-generator-default
 
