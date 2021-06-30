@@ -54,3 +54,6 @@ include::{main_sourcepath}gigalixirdeploy/accounts.ex[tags=GetUserEmail]
 plantuml::../../diagrams/test.puml[]
 
 
+image::../images/05_building_blocks-DE.png[]
+
+
