@@ -1,7 +1,7 @@
 # Antora
-- install
-- https://docs.antora.org/antora/2.3/install-and-run-quickstart/
-- npm i -g @antora/cli @antora/site-generator-default
+- install https://docs.antora.org/antora/2.3/install-and-run-quickstart/
+- GitHub Action https://github.com/kameshsampath/antora-test-site
+
 
 # PlantUml
 - test test
