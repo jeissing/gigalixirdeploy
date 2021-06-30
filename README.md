@@ -1,3 +1,7 @@
+# Antora
+- https://docs.antora.org/antora/2.3/install-and-run-quickstart/
+- npm i -g @antora/cli @antora/site-generator-default
+
 # PlantUml
 - test test
 - https://joymonscode.blogspot.com/search/label/plantUML
