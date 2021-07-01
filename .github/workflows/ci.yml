@@ -143,13 +143,13 @@ jobs:
   build_site:
     name: "Build site with Antora"
     runs-on: ubuntu-18.04
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v2
-        - name: "Generate site using antora site action"
-          uses: kameshsampath/antora-site-action@master
-          with:
-            antora_playbook: antora-playbook.yml
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: "Generate site using antora site action"
+        uses: kameshsampath/antora-site-action@master
+        with:
+          antora_playbook: antora-playbook.yml
 
 
 
