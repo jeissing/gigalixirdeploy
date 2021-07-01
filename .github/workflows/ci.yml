@@ -157,7 +157,7 @@ jobs:
           antora_playbook: docs-site/antora-playbook.yml
       - name: "List folder again"
         run: |
-          ls -ltr $GITHUB_WORKSPACE
+          ls -ltr $GITHUB_WORKSPACE/docs-site
       - name: "upload generated site"
         uses: actions/upload-artifact@v1.0.0
         with:
