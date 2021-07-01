@@ -167,7 +167,7 @@ jobs:
     runs-on: [ubuntu-latest]
     env:
       SITE_DIR: 'site'
-    needs: [build_site]
+    needs: ubuntu-18.04
     name: "Deploy GitHub Pages"
     steps:
       - name: Setup Node.js for use with actions
