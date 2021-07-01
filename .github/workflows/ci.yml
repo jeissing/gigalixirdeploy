@@ -143,6 +143,8 @@ jobs:
   build_site:
     name: "Build site with Antora"
     runs-on: ubuntu-18.04
+    env: 
+      SITE_DIR: 'site'
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -153,6 +155,14 @@ jobs:
         uses: kameshsampath/antora-site-action@master
         with:
           antora_playbook: docs-site/antora-playbook.yml
+      - name: "List folder again"
+        run: |
+          ls -ltr $GITHUB_WORKSPACE
+      - name: "upload generated site"
+        uses: actions/upload-artifact@v1.0.0
+        with:
+          name: site
+          path: "${{ github.workspace }}/build/${{ env.SITE_DIR }}"
 
 
 
