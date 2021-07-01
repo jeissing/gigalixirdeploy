@@ -1,5 +1,6 @@
 site:
   title: Antora Docs
+  url: https://jeissing.github.io/gigalixirdeploy/docs-site
   start_page: component-b::index.adoc
 content:
   sources:
