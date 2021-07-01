@@ -165,8 +165,6 @@ jobs:
           path: "${{ github.workspace }}/docs-site/build/${{ env.SITE_DIR }}"
   deploy_site:
     runs-on: ubuntu-18.04
-    env:
-      SITE_DIR: 'site'
     needs: [build_site]
     name: "Deploy GitHub Pages"
     steps:
