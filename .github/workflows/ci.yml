@@ -138,7 +138,8 @@ jobs:
     - run: echo DATABASE_ID=$(gigalixir pg --app_name myapp-${{ env.APP_ID }} | jq '.[].id') >> $GITHUB_ENV
     - run: gigalixir pg:destroy -y -d ${{ env.DATABASE_ID}}
     - run: gigalixir apps:destroy -y --app_name myapp-${{ env.APP_ID }}
-    - run: echo $DATABASE_ID   
+    - run: echo $DATABASE_ID
+       
    build_site:
     name: "Build site with Antora"
     runs-on: ubuntu-18.04
@@ -149,7 +150,7 @@ jobs:
           uses: kameshsampath/antora-site-action@master
           with:
             antora_playbook: antora-playbook.yml
-            
+
 
 
 
