@@ -188,8 +188,9 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@3.2.1
         with:
           GITHUB_TOKEN: "${{ github.token}}"
-          FOLDER: "${{ env.SITE_DIR }}/docs"
+          FOLDER: "${{ env.SITE_DIR }}"
           BRANCH: 'gh-pages'
+          TARGET_FOLDER: "docs"
           COMMIT_MESSAGE: "[CI] Publish Documentation for ${{ github.sha }}"
 
 
