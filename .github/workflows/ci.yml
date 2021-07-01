@@ -164,10 +164,10 @@ jobs:
           name: site
           path: "${{ github.workspace }}/docs-site/build/${{ env.SITE_DIR }}"
   deploy_site:
-    runs-on: [ubuntu-latest]
+    runs-on: ubuntu-18.04
     env:
       SITE_DIR: 'site'
-    needs: ubuntu-18.04
+    needs: [build_site]
     name: "Deploy GitHub Pages"
     steps:
       - name: Setup Node.js for use with actions
