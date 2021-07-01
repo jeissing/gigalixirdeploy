@@ -184,6 +184,14 @@ jobs:
         with:
           name: site
           path: "${{ github.workspace }}/${{ env.SITE_DIR }}"
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@3.2.1
+          GITHUB_TOKEN: "${{ github.token}}"
+          FOLDER: "${{ env.SITE_DIR }}"
+          BRANCH: 'gh-pages'
+          COMMIT_MESSAGE: "[CI] Publish Documentation for ${{ github.sha }}"
+
+
 
 
 
