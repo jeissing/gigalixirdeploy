@@ -139,8 +139,8 @@ jobs:
     - run: gigalixir pg:destroy -y -d ${{ env.DATABASE_ID}}
     - run: gigalixir apps:destroy -y --app_name myapp-${{ env.APP_ID }}
     - run: echo $DATABASE_ID
-       
-   build_site:
+
+  build_site:
     name: "Build site with Antora"
     runs-on: ubuntu-18.04
       steps:
