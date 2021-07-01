@@ -157,12 +157,12 @@ jobs:
           antora_playbook: docs-site/antora-playbook.yml
       - name: "List folder again"
         run: |
-          ls -ltr $GITHUB_WORKSPACE/docs-site
+          ls -ltr $GITHUB_WORKSPACE/docs-site/build
       - name: "upload generated site"
         uses: actions/upload-artifact@v1.0.0
         with:
           name: site
-          path: "${{ github.workspace }}/docs-site/build/${{ env.SITE_DIR }}"
+          path: "${{ github.workspace }}/build/${{ env.SITE_DIR }}"
 
 
 
