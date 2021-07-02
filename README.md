@@ -3,6 +3,9 @@
 - GitHub Action https://github.com/kameshsampath/antora-test-site
 - test
 
+# GitHub Actions
+- The Bad and Ugly : https://colinsalmcorner.com/deployment-with-github-actions/
+
 # PlantUml
 - test test test
 - https://joymonscode.blogspot.com/search/label/plantUML
