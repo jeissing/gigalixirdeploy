@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success'}}
     steps:
-      - run: env
+      - run: echo 'succes'
   on-failure:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'failure'}}
     steps:
-      - run: env
+      - run: echo 'failure'
 
