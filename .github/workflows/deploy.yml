@@ -1,0 +1,12 @@
+name: Deploy
+on:
+  workflow_run:
+    workflows:
+      - TestAndDeploy
+    types:
+      - completed
+jobs:
+  name: Deploy Step
+  runs-on: ubuntu-latest
+  steps:
+    run: env
