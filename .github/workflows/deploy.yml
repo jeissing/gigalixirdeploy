@@ -6,8 +6,15 @@ on:
     types:
       - completed
 jobs:
-  test-job:
+  on-success:
     name: Deploy Step
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success'}}
     steps:
       - run: env
+  on-failure:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'failure'}}
+    steps:
+      - run: env
+
