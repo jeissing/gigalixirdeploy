@@ -6,7 +6,8 @@ on:
     types:
       - completed
 jobs:
-  name: Deploy Step
-  runs-on: ubuntu-latest
-  steps:
-    run: env
+  test-job:
+    name: Deploy Step
+    runs-on: ubuntu-latest
+    steps:
+      - run: env
