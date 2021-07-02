@@ -6,6 +6,9 @@
 # GitHub Actions
 - The Bad and Ugly : https://colinsalmcorner.com/deployment-with-github-actions/
 
+# How to get your Elixir App Ready for CI/CD (local)
+- https://blog.appsignal.com/2020/01/29/how-to-get-your-elixir-application-ready-for-ci-cd.html
+
 # PlantUml
 - test test test
 - https://joymonscode.blogspot.com/search/label/plantUML
