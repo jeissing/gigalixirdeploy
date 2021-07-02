@@ -2,6 +2,7 @@
 - install https://docs.antora.org/antora/2.3/install-and-run-quickstart/
 - GitHub Action https://github.com/kameshsampath/antora-test-site
 - test
+- https://docs-as-co.de/news/multi-repo-arc42-antora-part1/
 
 # GitHub Actions
 - The Bad and Ugly : https://colinsalmcorner.com/deployment-with-github-actions/
