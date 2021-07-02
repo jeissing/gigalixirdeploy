@@ -1,4 +1,4 @@
-name: TestAndDeploy
+name: CommitStage
 on: 
   push:
     branches: [master]
