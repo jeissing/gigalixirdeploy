@@ -3,6 +3,7 @@
 - GitHub Action https://github.com/kameshsampath/antora-test-site
 - test
 - https://docs-as-co.de/news/multi-repo-arc42-antora-part1/
+- https://blog.anoff.io/
 
 # GitHub Actions
 - The Bad and Ugly : https://colinsalmcorner.com/deployment-with-github-actions/
@@ -13,6 +14,7 @@
 # PlantUml
 - test test test
 - https://joymonscode.blogspot.com/search/label/plantUML
+- good samples https://blog.mrhaki.com/search/label/PlantUML
 
 
 # alternative cleanup

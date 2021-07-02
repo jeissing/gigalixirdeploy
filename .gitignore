@@ -30,6 +30,7 @@ npm-debug.log
 
 # The dicretory Antora generate the docs-site to
 /docs-site/build
+/build
 
 # Since we are building assets from assets/,
 # we ignore priv/static. You may want to comment
