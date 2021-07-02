@@ -7,7 +7,7 @@ on:
       - completed
 
 jobs:
-  test-job:
+  testjob:
     runs-on: ubuntu-18.04
     steps:
       - run: echo 'josef'
