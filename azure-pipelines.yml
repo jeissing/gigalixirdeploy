@@ -23,6 +23,7 @@ steps:
     mix local.rebar
     mix local.hex
     mix deps.get
+    mix compile
     mix format --checked-formatted
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
