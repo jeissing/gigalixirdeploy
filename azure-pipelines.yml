@@ -30,7 +30,7 @@ stages:
     - script: |
         mix compile
         echo mix test --exclude acceptance
-- stage: Automated_acceptance_testing_stage_(DEV)
+- stage: Automated_acceptance_testing_stage
   jobs:
   - job: CreateCluster
     steps:
