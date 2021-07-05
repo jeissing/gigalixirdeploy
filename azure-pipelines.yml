@@ -46,13 +46,13 @@ stages:
   - job: Capacity_testing
     steps:
     - script: |
-        echo nightly run on clean cluster (optional hotfix) 
+        echo nightly run on clean cluster optional hotfix 
 - stage: Manual_testing_stage
   jobs:
   - job: Manual_testing
     steps:
     - script: |
-        echo freigabe on demand (optional hotfix)
+        echo freigabe on demand optional hotfix
 - stage: Release_stage
   jobs:
   - job: Release
