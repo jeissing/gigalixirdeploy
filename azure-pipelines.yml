@@ -14,9 +14,12 @@ steps:
   displayName: 'Run a one-line script'
 
 - script: |
+    wget https://packages.erlang-solutions.com/erlang-solutions_2.0_all.deb && sudo dpkg -i erlang-solutions_2.0_all.deb
+    sudo apt-get update
+    sudo apt-get install esl-erlang
+    sudo apt-get install elixir
     echo sudo apt-get install elixir
     elixir -v
-    erl -v
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script test123'
