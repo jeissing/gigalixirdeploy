@@ -23,8 +23,7 @@ steps:
     sudo apt-get install elixir=1.12.0-1
     echo sudo apt-get install elixir
     elixir -v
-    mix compile
-    mix local.hex
+    mix local.hex --force
     mix compile
     mix local.rebar
     
