@@ -20,6 +20,7 @@ steps:
     sudo apt-get install elixir
     echo sudo apt-get install elixir
     elixir -v
+    mix local.hex
     mix deps.get
     mix format --checked-formatted
     echo Add other tasks to build, test, and deploy your project.
