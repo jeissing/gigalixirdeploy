@@ -30,11 +30,24 @@ stages:
     - script: |
         mix compile
         echo mix test --exclude acceptance
-- stage: Automated_acceptance_testing_stage
+    - script: |
+        echo deploy to gigalixir
+        echo save artifact Quellcode
+- stage: Acceptance_testing_stage
   jobs:
-  - job: CreateCluster
+  - job: Acceptance_testing
     steps:
-    - script: echo CreateCluster the code!
+    - script: | 
+        echo Create App -Cluster the code!
+        echo Execute Acceptante test BDD
+        echo generate HAR File for Capacity tests
+- stage: Capacity_testing
+  jobs:
+  - job: Capacity_testing
+    steps:
+    - script: |
+        echo: nightly run on clean cluster 
+
     
 
        
