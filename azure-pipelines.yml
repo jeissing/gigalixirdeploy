@@ -10,7 +10,7 @@ pool:
   vmImage: ubuntu-latest
 
 stages:
-- stage: Commit
+- stage: Commit_stage
   jobs: 
   - job: Build
     steps:
@@ -30,7 +30,7 @@ stages:
     - script: |
         mix compile
         echo mix test --exclude acceptance
-- stage: 'Automated acceptance testing (DEV)'
+- stage: Automated_acceptance_testing_stage_(DEV)
   jobs:
   - job: CreateCluster
     steps:
