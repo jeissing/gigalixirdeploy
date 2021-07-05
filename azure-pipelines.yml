@@ -56,10 +56,18 @@ stages:
         echo freigabe on demand optional hotfix
 - stage: Release_stage
   jobs:
-  - job: Release
-    steps:
-    - script: |
-        echo auf prod deployen. 
+  - deployment: DeployGiga
+    displayName: Deploy to produktion
+    pool: 
+     vmImage: ubuntu-latest
+    environment: TestJupp
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+            - script: |
+                echo auf prod deployen
+   
 
     
 
