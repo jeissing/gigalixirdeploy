@@ -28,6 +28,7 @@ stages:
         mix format --check-formatted
         mix credo --strict
     - script: |
-        mix test --exclude acceptance
+        mix compile
+        echo mix test --exclude acceptance
         
       
