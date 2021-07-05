@@ -18,13 +18,11 @@ stages:
         wget https://packages.erlang-solutions.com/erlang-solutions_2.0_all.deb && sudo dpkg -i erlang-solutions_2.0_all.deb
         sudo apt-get update
         sudo apt-get install esl-erlang
-        displayName: 'Setup Erlang'
     - script: |
         sudo apt-get install elixir
         mix local.hex --force
         mix local.rebar --force
         mix deps.get
-        displayName: 'Setup Elixir'
         mix format --check-formatted
         mix credo --strict
         mix test --exclude acceptance
