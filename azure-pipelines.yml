@@ -30,5 +30,12 @@ stages:
     - script: |
         mix compile
         echo mix test --exclude acceptance
-        
+- stage: 'Automated acceptance testing (DEV)'
+  jobs:
+  - job: CreateCluster
+    steps:
+    - script: echo CreateCluster the code!
+    
+
+       
       
