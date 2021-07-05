@@ -9,28 +9,25 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+stages:
+- stage: Commit
+  jobs: 
+  - job: Build
+    steps:
+    - script: |    
+      wget https://packages.erlang-solutions.com/erlang-solutions_2.0_all.deb && sudo dpkg -i erlang-solutions_2.0_all.deb
+      sudo apt-get update
+      sudo apt-get install esl-erlang
+      echo sudo apt-get install elixir=1.12.0-1
+      sudo apt-get install elixir
+      elixir -v
+      mix local.hex --force
+      mix local.rebar --force
+      mix deps.get
+      mix format --check-formatted
+      mix credo --strict
 
-- script: |
-    
-    
-    
-    wget https://packages.erlang-solutions.com/erlang-solutions_2.0_all.deb && sudo dpkg -i erlang-solutions_2.0_all.deb
-    sudo apt-get update
-    sudo apt-get install esl-erlang
-    echo sudo apt-get install elixir=1.12.0-1
-    sudo apt-get install elixir
-    elixir -v
-    mix local.hex --force
-    mix local.rebar --force
-    mix deps.get
-    mix format --check-formatted
-    mix credo --strict
-
-    mix test --exclude acceptance
-    echo mix format --checked-formatted
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script test123'
+      mix test --exclude acceptance
+      echo mix format --checked-formatted
+      echo Add other tasks to build, test, and deploy your project.
+      echo See https://aka.ms/yaml
