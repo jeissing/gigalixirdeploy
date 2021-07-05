@@ -41,12 +41,24 @@ stages:
         echo Create App -Cluster the code!
         echo Execute Acceptante test BDD
         echo generate HAR File for Capacity tests
-- stage: Capacity_testing
+- stage: Capacity_testing_stage
   jobs:
   - job: Capacity_testing
     steps:
     - script: |
-        echo: nightly run on clean cluster 
+        echo nightly run on clean cluster (optional hotfix) 
+- stage: Manual_testing_stage
+  jobs:
+  - job: Manual_testing
+    steps:
+    - script: |
+        echo freigabe on demand (optional hotfix)
+- stage: Release_stage
+  jobs:
+  - job: Release
+    steps:
+    - script: |
+        echo auf prod deployen. 
 
     
 
