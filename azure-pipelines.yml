@@ -20,7 +20,9 @@ steps:
     sudo apt-get install elixir
     echo sudo apt-get install elixir
     elixir -v
+    echo install hex
     mix local.hex
+    echo hex installed
     mix compile
     mix local.rebar
     
