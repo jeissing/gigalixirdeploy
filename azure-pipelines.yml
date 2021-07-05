@@ -20,9 +20,10 @@ steps:
     sudo apt-get install elixir
     echo sudo apt-get install elixir
     elixir -v
+    mix local.hex
     mix compile
     mix local.rebar
-    mix local.hex
+    
     mix deps.get
     mix compile
     mix format --checked-formatted
