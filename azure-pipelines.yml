@@ -15,7 +15,7 @@ steps:
 
 - script: |
     sudo apt-get install elixir
-    echo elixir -v
+    elixir -v
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script test123'
