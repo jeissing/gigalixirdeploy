@@ -22,10 +22,12 @@ stages:
         sudo apt-get install elixir
         mix local.hex --force
         mix local.rebar --force
+    - script: |
         mix deps.get
+    - script: |
         mix format --check-formatted
         mix credo --strict
+    - script: |
         mix test --exclude acceptance
-        echo mix format --checked-formatted
-        echo Add other tasks to build, test, and deploy your project
+        
       
