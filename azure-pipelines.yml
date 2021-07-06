@@ -59,6 +59,8 @@ stages:
         echo "##vso[task.setvariable variable=FOO]$FOO"
     - script: |
         echo nightly run on clean cluster optional hotfix 
+    - bash: |
+        echo: "$FOO"
 - stage: Manual_testing_stage
   jobs:
   - job: Manual_testing
