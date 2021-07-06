@@ -60,6 +60,13 @@ stages:
     displayName: Manual Testing
     timeoutInMinutes: 4320 # job times out in 3 days
     steps:
+    
+    - task: ManualValidation@0
+      inputs:
+        notifyUsers: 'josef.eissing@outlook.com'
+        instructions: 'Bitte führen Sie die manuellen Test durch. Bei Erfolg resumen , Ansonsten rejecten.'
+        onTimeout: 'resume'
+
     - task: ManualValidation@0
       timeoutInMinutes: 1440 # task times out in 1 day
       inputs:
