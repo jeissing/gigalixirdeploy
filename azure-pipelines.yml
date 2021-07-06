@@ -68,8 +68,8 @@ stages:
           josef.eissing@outlook.com
         instructions: 'Please validate the build and resume, if bug reject'
         onTimeout: 'resume'
-    - script: |
-        echo freigabe on demand optional hotfix
+    #- script: |
+    #    echo freigabe on demand optional hotfix
 - stage: Release_stage
   jobs:
   - deployment: DeployGiga
