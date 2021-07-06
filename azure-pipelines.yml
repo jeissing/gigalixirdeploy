@@ -60,7 +60,7 @@ stages:
     - script: |
         echo nightly run on clean cluster optional hotfix 
     - bash: |
-        echo: "$FOO"
+        echo "$FOO"
 - stage: Manual_testing_stage
   jobs:
   - job: Manual_testing
