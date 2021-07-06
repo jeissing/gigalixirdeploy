@@ -48,7 +48,7 @@ stages:
         echo Execute Acceptante test BDD
         echo generate HAR File for Capacity tests
 - stage: Capacity_testing_stage
-  condition: and(succeeded(), eq(variables['Build.Reason'], 'Schedule'))
+  condition: and(succeeded(), eq(variables['Build.Reason'], 'Schedule', 'Manual'))
   jobs:
   - job: Capacity_testing
     steps:
