@@ -51,16 +51,16 @@ stages:
   condition: and(succeeded(), in(variables['Build.Reason'], 'Schedule', 'Manual'))
   jobs:
   - job: Capacity_testing
-    variables:
-    - group: CapacatyTestExclusion
+    #variables:
+    #- group: CapacatyTestExclusion
     steps:
-    - bash: |
-        FOO="runtime value"
-        echo "##vso[task.setvariable variable=FOO]$FOO"
+    #- bash: |
+    #    FOO="runtime value"
+    #    echo "##vso[task.setvariable variable=FOO]$FOO"
     - script: |
         echo nightly run on clean cluster optional hotfix 
-    - bash: |
-        echo "$FOO"
+    #- bash: |
+    #    echo "$FOO"
 - stage: Manual_testing_stage
   jobs:
   - job: Manual_testing
