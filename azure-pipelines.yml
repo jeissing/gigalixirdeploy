@@ -70,6 +70,18 @@ stages:
         onTimeout: 'resume'
     #- script: |
     #    echo freigabe on demand optional hotfix
+- stage: Release_freigabe_stage
+  jobs:
+  - job: Release_freigabe
+    displayName: Release Freigabe
+    pool: server
+    timeoutInMinutes: 4320 # job times out in 3 days
+    steps:
+    - task: ManualValidation@0
+      inputs:
+        notifyUsers: 'josef.eissing@outlook.com'
+        instructions: 'Bitte geben Sie das Release frei.'
+        onTimeout: 'reject'
 - stage: Release_stage
   jobs:
   - deployment: DeployGiga
