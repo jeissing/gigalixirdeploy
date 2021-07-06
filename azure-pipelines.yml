@@ -57,7 +57,16 @@ stages:
 - stage: Manual_testing_stage
   jobs:
   - job: Manual_testing
+    displayName: Manual Testing
+    timeoutInMinutes: 4320 # job times out in 3 days
     steps:
+    - task: ManualValidation@0
+      timeoutInMinutes: 1440 # task times out in 1 day
+      inputs:
+        notifyUsers: |
+          josef.eissing@outlook.com
+        instructions: 'Please validate the build and resume, if bug reject'
+        onTimeout: 'resume'
     - script: |
         echo freigabe on demand optional hotfix
 - stage: Release_stage
