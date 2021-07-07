@@ -47,16 +47,16 @@ stages:
         mix local.hex --force
         mix local.rebar --force
       displayName: SetupElixir
-    - script: |
+    - bash: |
         mix deps.get
       displayName: Dependencies
-    - script: |
+    - bash: |
         mix format --check-formatted
       displayName: Format
-    - script: | 
+    - bash: | 
         mix credo --strict
       displayName: Credo
-    - script: |
+    - bash: |
         mix test --exclude acceptance        
       displayName: Unittest
     - script: |
