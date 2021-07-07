@@ -81,7 +81,7 @@ stages:
         testResultsFiles: '**/*report_file_test.xml'
     - task: PublishCodeCoverageResults@1
       inputs:
-        codeCoverageTool: 'JaCoCo'
+        codeCoverageTool: 'Cobertura'
         summaryFileLocation: '**/coverage.xml'
     - script: |
         echo deploy to gigalixir
