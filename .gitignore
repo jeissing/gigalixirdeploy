@@ -43,3 +43,6 @@ npm-debug.log
 # Dialyzer
 /priv/plts/*.plt
 /priv/plts/*.plt.hash
+
+# Coverage
+coverage.xml
