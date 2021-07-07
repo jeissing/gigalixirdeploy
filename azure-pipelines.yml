@@ -62,9 +62,8 @@ stages:
       runOnce:
         deploy:
           steps:
-          - task: Delay@1
-            inputs:
-              delayForMinutes: '10'
+          - bash: |
+              sleep 5m
           - script: |
               echo nightly run on clean cluster optional hotfix 
 
