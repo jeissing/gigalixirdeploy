@@ -77,7 +77,7 @@ stages:
     - task: PublishTestResults@2
       inputs:
         testResultsFormat: 'JUnit'
-        testResultsFiles: '**/TEST-*.xml'
+        testResultsFiles: '**/*report_file_test.xml'
     - script: |
         echo deploy to gigalixir
         echo save artifact Quellcode
