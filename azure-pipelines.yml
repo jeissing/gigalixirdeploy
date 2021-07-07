@@ -72,23 +72,25 @@ stages:
   dependsOn: Capacity_testing_stage
   jobs:
   - deployment: Manual_testing
-    displayName: Manual Testing
-    #pool: server
-    environment: ManualTestEnvironment
-    timeoutInMinutes: 4320 # job times out in 3 days
+    displayName: Manual Testing    
+    environment: ManualTestEnvironment    
     strategy:
       runOnce:
         deploy:            
           steps:
-          - task: ManualValidation@0
-            timeoutInMinutes: 1 #1440 # task times out in 1 day
-            inputs:
-              notifyUsers: |
-                josef.eissing@outlook.com
-              instructions: 'Please validate the build and resume, if bug reject'
-              onTimeout: 'reject'
-          #- script: |
-          #    echo freigabe on demand optional hotfix
+          - script: |
+              echo freigabe on demand optional hotfix
+  - job: approvement_job
+    pool: server
+    timeoutInMinutes: 4320 # job times out in 3 days
+    steps:
+      - task: ManualValidation@0
+        timeoutInMinutes: 1 #1440 # task times out in 1 day
+        inputs:
+          notifyUsers: |
+            josef.eissing@outlook.com
+          instructions: 'Please validate the build and resume, if bug reject'
+          onTimeout: 'reject'
 
 - stage: Release_freigabe_stage
   dependsOn: Manual_testing_stage
