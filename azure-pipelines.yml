@@ -39,6 +39,7 @@ stages:
     - script: |
         echo deploy to gigalixir
         echo save artifact Quellcode
+
 - stage: Acceptance_testing_stage
   jobs:
   - job: Acceptance_testing
@@ -47,20 +48,21 @@ stages:
         echo Create App -Cluster the code!
         echo Execute Acceptante test BDD
         echo generate HAR File for Capacity tests
+
 - stage: Capacity_testing_stage
+  displayName: Capacity Testing Stage
   condition: and(succeeded(), in(variables['Build.Reason'], 'Schedule', 'Manual'))
   jobs:
-  - job: Capacity_testing
-    #variables:
-    #- group: CapacatyTestExclusion
-    steps:
-    #- bash: |
-    #    FOO="runtime value"
-    #    echo "##vso[task.setvariable variable=FOO]$FOO"
-    - script: |
-        echo nightly run on clean cluster optional hotfix 
-    #- bash: |
-    #    echo "$FOO"
+  - deployment: Capacity_testing
+    displayName: Capacity Testing
+    environment: TestEnvironment
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - script: |
+              echo nightly run on clean cluster optional hotfix 
+
 - stage: Manual_testing_stage
   jobs:
   - job: Manual_testing
@@ -77,6 +79,7 @@ stages:
         onTimeout: 'resume'
     #- script: |
     #    echo freigabe on demand optional hotfix
+
 - stage: Release_freigabe_stage
   jobs:
   - job: Release_freigabe
@@ -89,6 +92,7 @@ stages:
         notifyUsers: 'josef.eissing@outlook.com'
         instructions: 'Bitte geben Sie das Release frei.'
         onTimeout: 'reject'
+
 - stage: Release_stage
   jobs:
   - deployment: DeployGiga
