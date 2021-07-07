@@ -57,15 +57,19 @@ stages:
   jobs:
   - deployment: Capacity_testing
     displayName: Capacity Testing
-    environment: TestEnvironment
+    environment: CapacityTestEnvironment
     strategy:
       runOnce:
         deploy:
           steps:
+          - task: Delay@1
+            inputs:
+              delayForMinutes: '10'
           - script: |
               echo nightly run on clean cluster optional hotfix 
 
 - stage: Manual_testing_stage
+  displayName: Manual Testing Stage
   dependsOn: Capacity_testing_stage
   jobs:
   - job: Manual_testing
