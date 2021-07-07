@@ -51,22 +51,18 @@ stages:
         mix local.hex --force
         mix local.rebar --force
       displayName: SetupElixir
-    - bash: |
-        # export MIX_ENV="test"
-        echo hier
+    - bash: |                
         echo $MIX_ENV
         mix deps.get
       displayName: Dependencies
     - bash: |
         mix format --check-formatted
       displayName: Format
-    - bash: |    
-        echo hier     
+    - bash: |      
         echo $MIX_ENV
         mix credo --strict
       displayName: Credo
     - bash: |
-        echo hier
         echo $MIX_ENV
         mix test --exclude acceptance        
       displayName: Unittest
