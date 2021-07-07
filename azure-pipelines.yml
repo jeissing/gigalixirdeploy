@@ -52,6 +52,7 @@ stages:
         mix local.rebar --force
       displayName: SetupElixir
     - task: Cache@2
+      displayName: deps-cache
       inputs:
         key: '"$(Agent.OS)"| mix | mix.lock '
         path: 'deps'
