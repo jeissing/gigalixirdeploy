@@ -55,7 +55,7 @@ stages:
         mix format --check-formatted
         mix credo --strict
     - script: |
-        mix compile
+        mix test
         echo mix test --exclude acceptance
     - script: |
         echo deploy to gigalixir
