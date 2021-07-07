@@ -31,6 +31,8 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+variables:
+  MIX_ENV: 'test' 
 stages:
 - stage: Commit_stage
   jobs: 
@@ -50,18 +52,21 @@ stages:
         mix local.rebar --force
       displayName: SetupElixir
     - bash: |
-        export MIX_ENV="test"
+        # export MIX_ENV="test"
+        echo hier
         echo $MIX_ENV
         mix deps.get
       displayName: Dependencies
     - bash: |
         mix format --check-formatted
       displayName: Format
-    - bash: |         
+    - bash: |    
+        echo hier     
         echo $MIX_ENV
         mix credo --strict
       displayName: Credo
     - bash: |
+        echo hier
         echo $MIX_ENV
         mix test --exclude acceptance        
       displayName: Unittest
