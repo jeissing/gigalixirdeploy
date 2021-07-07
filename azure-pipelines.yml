@@ -63,7 +63,7 @@ stages:
         deploy:
           steps:
           - bash: |
-              sleep 5m
+              sleep 2m
           - script: |
               echo nightly run on clean cluster optional hotfix 
 
@@ -71,20 +71,24 @@ stages:
   displayName: Manual Testing Stage
   dependsOn: Capacity_testing_stage
   jobs:
-  - job: Manual_testing
+  - deployment: Manual_testing
     displayName: Manual Testing
-    pool: server
+    #pool: server
+    environment: ManualTestEnvironment
     timeoutInMinutes: 4320 # job times out in 3 days
-    steps:
-    - task: ManualValidation@0
-      timeoutInMinutes: 1 #1440 # task times out in 1 day
-      inputs:
-        notifyUsers: |
-          josef.eissing@outlook.com
-        instructions: 'Please validate the build and resume, if bug reject'
-        onTimeout: 'reject'
-    #- script: |
-    #    echo freigabe on demand optional hotfix
+    strategy:
+      runOnce:
+        deploy:            
+          steps:
+          - task: ManualValidation@0
+            timeoutInMinutes: 1 #1440 # task times out in 1 day
+            inputs:
+              notifyUsers: |
+                josef.eissing@outlook.com
+              instructions: 'Please validate the build and resume, if bug reject'
+              onTimeout: 'reject'
+          #- script: |
+          #    echo freigabe on demand optional hotfix
 
 - stage: Release_freigabe_stage
   dependsOn: Manual_testing_stage
