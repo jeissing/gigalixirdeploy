@@ -50,18 +50,19 @@ stages:
         mix local.rebar --force
       displayName: SetupElixir
     - bash: |
+        MIX_ENV="test"
+        echo $MIX_ENV
         mix deps.get
       displayName: Dependencies
     - bash: |
         mix format --check-formatted
       displayName: Format
-    - bash: | 
-        MIX_ENV="test"
-        echo MIX_ENV
+    - bash: |         
+        echo $MIX_ENV
         mix credo --strict
       displayName: Credo
     - bash: |
-        echo MIX_ENV
+        echo $MIX_ENV
         mix test --exclude acceptance        
       displayName: Unittest
     - script: |
