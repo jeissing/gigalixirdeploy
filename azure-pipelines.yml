@@ -3,6 +3,8 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+# Testing Elixir : https://spin.atomicobject.com/2018/10/22/elixir-test-multiple-environments/
+
 resources:
  containers:
   # Specify the Docker container hosting the database to be used when running integration tests.
@@ -54,9 +56,12 @@ stages:
         mix format --check-formatted
       displayName: Format
     - bash: | 
+        MIX_ENV="test"
+        echo MIX_ENV
         mix credo --strict
       displayName: Credo
     - bash: |
+        echo MIX_ENV
         mix test --exclude acceptance        
       displayName: Unittest
     - script: |
