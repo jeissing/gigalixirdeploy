@@ -77,12 +77,12 @@ stages:
     timeoutInMinutes: 4320 # job times out in 3 days
     steps:
     - task: ManualValidation@0
-      timeoutInMinutes: 1440 # task times out in 1 day
+      timeoutInMinutes: 1 #1440 # task times out in 1 day
       inputs:
         notifyUsers: |
           josef.eissing@outlook.com
         instructions: 'Please validate the build and resume, if bug reject'
-        onTimeout: 'resume'
+        onTimeout: 'reject'
     #- script: |
     #    echo freigabe on demand optional hotfix
 
