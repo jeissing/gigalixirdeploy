@@ -71,8 +71,9 @@ stages:
     - bash: |              
         mix credo --strict
       displayName: Credo
-    - bash: |        
-        mix test --exclude acceptance        
+    - bash: |   
+        mix coveralls.json --exclude acceptance     
+        #mix test --exclude acceptance        
       displayName: Unittest
     - task: PublishTestResults@2
       inputs:
