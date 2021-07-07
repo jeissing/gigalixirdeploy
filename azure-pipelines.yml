@@ -74,6 +74,10 @@ stages:
     - bash: |        
         mix test --exclude acceptance        
       displayName: Unittest
+    - task: PublishTestResults@2
+      inputs:
+        testResultsFormat: 'JUnit'
+        testResultsFiles: '**/TEST-*.xml'
     - script: |
         echo deploy to gigalixir
         echo save artifact Quellcode
