@@ -12,7 +12,10 @@ defmodule Gigalixirdeploy.MixProject do
       aliases: aliases(),
       dialyzer: dialyzer(),
       deps: deps(),
-      test_coverage: [tool: ExCoveralls]
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_new: [
+        coveralls: :test
+      ]
     ]
   end
 
