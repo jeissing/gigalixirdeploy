@@ -58,7 +58,7 @@ stages:
         path: 'deps'
     - task: Cache@2
       displayName: build-cache 
-      #  to do: matirx OS ? (vgl. githubActions)
+      #  to do: matrix OS ? (vgl. githubActions) 
       inputs:
         key: '$(Agent.OS) | build | mix.lock'
         path: '_build'
