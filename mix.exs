@@ -61,7 +61,8 @@ defmodule Gigalixirdeploy.MixProject do
       {:excoveralls, "~> 0.14.1", only: [:test]},
       {:hound, "~> 1.1"},
       {:cabbage, "~> 0.3.6"},
-      {:phx_gen_auth, "~> 0.7.0", only: [:dev], runtime: false}
+      {:phx_gen_auth, "~> 0.7.0", only: [:dev], runtime: false},
+      {:junit_formatter, "~> 3.3", only: [:test]}
     ]
   end
 
