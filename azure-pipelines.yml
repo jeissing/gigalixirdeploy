@@ -56,6 +56,12 @@ stages:
       inputs:
         key: '"$(Agent.OS)"| mix | mix.lock '
         path: 'deps'
+    - task: Cache@2
+      displayName: build-cache 
+      #  to do: matirx OS ? (vgl. githubActions)
+      inputs:
+        key: '$(Agent.OS) | build | mix.lock'
+        path: '_build'
     - bash: |                        
         mix deps.get
       displayName: Dependencies
