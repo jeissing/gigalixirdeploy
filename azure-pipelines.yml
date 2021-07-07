@@ -71,13 +71,18 @@ stages:
     - bash: |              
         mix credo --strict
       displayName: Credo
-    - bash: |        
-        mix test --exclude acceptance        
+    - bash: |   
+        mix coveralls.json --exclude acceptance     
+        #mix test --exclude acceptance        
       displayName: Unittest
     - task: PublishTestResults@2
       inputs:
         testResultsFormat: 'JUnit'
         testResultsFiles: '**/*report_file_test.xml'
+    - task: PublishCodeCoverageResults@1
+      inputs:
+        codeCoverageTool: 'JaCoCo'
+        summaryFileLocation: '**/excoveralls.json'
     - script: |
         echo deploy to gigalixir
         echo save artifact Quellcode
