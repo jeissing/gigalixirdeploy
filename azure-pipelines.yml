@@ -51,6 +51,10 @@ stages:
         mix local.hex --force
         mix local.rebar --force
       displayName: SetupElixir
+    - task: Cache@2
+      inputs:
+        key: '"$(Agent.OS)"| mix | mix.lock '
+        path: 'deps'
     - bash: |                        
         mix deps.get
       displayName: Dependencies
