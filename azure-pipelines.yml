@@ -3,6 +3,24 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+resources:
+ containers:
+  # Specify the Docker container hosting the database to be used when running integration tests.
+  # See example here: https://github.com/satrapu/aspnet-core-logging/blob/232a3d12fe71f427221f0d2f602d41c4bd93ac2b/Build/azure-pipelines.yml#L108
+  # See more here: https://docs.microsoft.com/en-us/azure/devops/pipelines/process/service-containers?view=azure-devops&tabs=yaml#single-job.
+  - container: 'postgres_linux_container_for_integration_tests'
+    # PostgreSQL Docker image (Linux container): https://hub.docker.com/_/postgres.
+    image: 'postgres:11.3-alpine'
+    ports:
+      - 9999:5432/tcp
+    env:
+       POSTGRES_PASSWORD: postgres
+    
+      
+
+
+
+
 trigger:
 - master
 #schedules:
