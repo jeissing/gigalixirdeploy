@@ -12,10 +12,10 @@ defmodule Gigalixirdeploy.MixProject do
       aliases: aliases(),
       dialyzer: dialyzer(),
       deps: deps(),
-      #test_coverage: [tool: ExCoveralls],
-      #preferred_cli_new: [
+      # test_coverage: [tool: ExCoveralls],
+      # preferred_cli_new: [
       #  coveralls: :test
-      #]
+      # ]
       test_coverage: [tool: :covertool]
     ]
   end
@@ -62,12 +62,13 @@ defmodule Gigalixirdeploy.MixProject do
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
       {:dialyxir, "~> 1.1", only: [:dev, :test], runtime: false},
       {:sobelow, "~> 0.11.1", only: [:dev, :test], runtime: false},
-      #{:excoveralls, "~> 0.14.1", only: [:test]},
+      # {:excoveralls, "~> 0.14.1", only: [:test]},
       {:hound, "~> 1.1"},
       {:cabbage, "~> 0.3.6"},
       {:phx_gen_auth, "~> 0.7.0", only: [:dev], runtime: false},
       {:junit_formatter, "~> 3.3", only: [:test]},
-      {:covertool, "~> 2.0"} # alternative zu coveralls
+      # alternative zu coveralls
+      {:covertool, "~> 2.0"}
     ]
   end
 
