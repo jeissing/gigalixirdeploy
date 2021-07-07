@@ -41,6 +41,7 @@ stages:
         echo save artifact Quellcode
 
 - stage: Acceptance_testing_stage
+  dependsOn: Commit_stage
   jobs:
   - job: Acceptance_testing
     steps:
@@ -52,6 +53,7 @@ stages:
 - stage: Capacity_testing_stage
   displayName: Capacity Testing Stage
   condition: and(succeeded(), in(variables['Build.Reason'], 'Schedule', 'Manual'))
+  dependsOn: Acceptance_testing_stage
   jobs:
   - deployment: Capacity_testing
     displayName: Capacity Testing
@@ -64,6 +66,7 @@ stages:
               echo nightly run on clean cluster optional hotfix 
 
 - stage: Manual_testing_stage
+  dependsOn: Capacity_testing_stage
   jobs:
   - job: Manual_testing
     displayName: Manual Testing
@@ -81,6 +84,7 @@ stages:
     #    echo freigabe on demand optional hotfix
 
 - stage: Release_freigabe_stage
+  dependsOn: Manual_testing_stage
   jobs:
   - job: Release_freigabe
     displayName: Release Freigabe
@@ -94,6 +98,7 @@ stages:
         onTimeout: 'reject'
 
 - stage: Release_stage
+  dependsOn: Release_freigabe_stage
   jobs:
   - deployment: DeployGiga
     displayName: Deploy to produktion
