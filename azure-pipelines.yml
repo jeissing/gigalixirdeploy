@@ -17,10 +17,6 @@ resources:
        POSTGRES_PASSWORD: postgres
     
       
-
-
-
-
 trigger:
 - master
 #schedules:
@@ -45,23 +41,28 @@ stages:
         wget https://packages.erlang-solutions.com/erlang-solutions_2.0_all.deb && sudo dpkg -i erlang-solutions_2.0_all.deb
         sudo apt-get update
         sudo apt-get install esl-erlang
+      displayName: SetupErlang
     - script: |
         sudo apt-get install elixir
         mix local.hex --force
         mix local.rebar --force
+      displayName: SetupElixir
     - script: |
         mix deps.get
+      displayName: Dependencies
     - script: |
         mix format --check-formatted
+      displayName: Format
+    - script: | 
         mix credo --strict
       displayName: Credo
     - script: |
-        mix test --exclude acceptance
-        echo mix test --exclude acceptance
-      displayName: Testing
+        mix test --exclude acceptance        
+      displayName: Unittest
     - script: |
         echo deploy to gigalixir
         echo save artifact Quellcode
+      displayName: DeployGigalixir
 
 - stage: Acceptance_testing_stage
   dependsOn: Commit_stage
