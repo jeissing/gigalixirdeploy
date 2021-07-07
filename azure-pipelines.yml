@@ -41,7 +41,7 @@ stages:
       postgres: postgres
     steps:
     - script: |
-        psql --host=postgres --username=postgres --command="SELECT 1;"
+        # psql --host=postgres --username=postgres --command="SELECT 1;"
         wget https://packages.erlang-solutions.com/erlang-solutions_2.0_all.deb && sudo dpkg -i erlang-solutions_2.0_all.deb
         sudo apt-get update
         sudo apt-get install esl-erlang
@@ -54,9 +54,11 @@ stages:
     - script: |
         mix format --check-formatted
         mix credo --strict
+      displayName: Credo
     - script: |
-        mix test
+        mix test --exclude acceptance
         echo mix test --exclude acceptance
+      displayName: Testing
     - script: |
         echo deploy to gigalixir
         echo save artifact Quellcode
