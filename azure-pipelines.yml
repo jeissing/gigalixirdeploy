@@ -90,7 +90,20 @@ stages:
     - task: CopyFiles@2
       inputs:
         SourceFolder: '$(Build.SourcesDirectory)'
-        Contents: '**'
+        Contents: |
+           !_builde\**
+           !cover\**
+           !deps\**
+           !doc\**
+           !assets\node_modules\**
+           !doc-site\build\**
+           !build\**
+           !priv\static\**
+           !config\dev.local.exs
+           !priv\plts\*.plt
+           !priv\plts\*.plt.hash
+           !coverage.xml
+           ConsoleApplication1\**\bin\**\!(*.pdb|*.config)
         TargetFolder: '$(Build.ArtifactStagingDirectory)'
         CleanTargetFolder: true
     - task: PublishBuildArtifacts@1
