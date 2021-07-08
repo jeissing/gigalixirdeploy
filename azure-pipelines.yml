@@ -91,20 +91,19 @@ stages:
       inputs:
         SourceFolder: '$(Build.SourcesDirectory)'
         Contents: |
-          **
-           !_builde\**
-           !cover\**
-           !deps\**
-           !doc\**
-           !assets\node_modules\**
-           !doc-site\build\**
-           !build\**
-           !priv\static\**
-           !config\dev.local.exs
-           !priv\plts\*.plt
-           !priv\plts\*.plt.hash
-           !coverage.xml
-           ConsoleApplication1\**\bin\**\!(*.pdb|*.config)
+          **/*
+           !_builde/**/*
+           !cover/**/*
+           !deps/**/*
+           !doc/**/*
+           !assets/node_modules/**/*
+           !doc-site/build/**/*
+           !build/**/*
+           !priv/static/**/*
+           !config/dev.local.exs
+           !priv/plts/*.plt
+           !priv/plts/*.plt.hash
+           !coverage.xml           
         TargetFolder: '$(Build.ArtifactStagingDirectory)'
         CleanTargetFolder: true
     - task: PublishBuildArtifacts@1
