@@ -90,8 +90,8 @@ stages:
 
   - job: Build_antora_docu
     steps:
-    - bash: npm i @antora/cli @antora/site-generator-default
-    - bash: antora -v
+    - bash: npm i --prefix ./assests  @antora/cli @antora/site-generator-default
+    - bash: $(npm bin)/antora -v
     - bash: echo build doku
 
 - stage: Acceptance_testing_stage
