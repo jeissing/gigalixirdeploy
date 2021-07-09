@@ -96,8 +96,20 @@ stages:
     - bash: sudo npm i -g @antora/cli @antora/site-generator-default
       displayName: Setup antora        
     - bash: antora --fetch antora-playbook.yml
-    
       displayName: Build playbook 
+    - task: CopyFiles@2
+      displayName: Copy docu site to stating directory 
+      inputs:
+        SourceFolder: '$(Build.SourcesDirectory)'
+        Contents: 'build/site/**/*'
+        TargetFolder: '$(Build.ArtifactStagingDirectory)'
+        CleanTargetFolder: true
+    - task: PublishBuildArtifacts@1
+      displayName: Publish docu site to artifact store
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'docusitedrop'
+        publishLocation: 'Container'  
 
 - stage: acceptance_test_stage
   displayName: Acceptance Test Stage
