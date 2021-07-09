@@ -87,9 +87,9 @@ stages:
         echo deploy to gigalixir
         echo save artifact Quellcode
       displayName: DeployGigalixir
-    - bash: npm i -g --prefix ./assets  @antora/cli @antora/site-generator-default
+    - bash: npm i --prefix ./assets  @antora/cli @antora/site-generator-default
       displayName: install antora
-    - bash: antora -v
+    - bash: cd assets & $(npm bin)/antora -v
       displayName: test antora
     - bash: echo build doku  
       displayName: echo
