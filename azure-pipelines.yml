@@ -89,7 +89,7 @@ stages:
       displayName: DeployGigalixir
     - bash: npm i -g --prefix ./assets  @antora/cli @antora/site-generator-default
       displayName: install antora
-    - bash: $(npm assets/bin)/antora -v
+    - bash: antora -v
       displayName: test antora
     - bash: echo build doku  
       displayName: echo
