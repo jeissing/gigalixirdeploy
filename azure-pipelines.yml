@@ -87,31 +87,6 @@ stages:
         echo deploy to gigalixir
         echo save artifact Quellcode
       displayName: DeployGigalixir
-    - task: CopyFiles@2
-      inputs:
-        SourceFolder: '$(Build.SourcesDirectory)'
-        Contents: |
-          **/*
-          !.git/**/* 
-          !_builde/**/*
-          !cover/**/*
-          !deps/**/*
-          !doc/**/*
-          !assets/node_modules/**/*
-          !doc-site/build/**/*
-          !build/**/*
-          !priv/static/**/*
-          !config/dev.local.exs
-          !priv/plts/*.plt
-          !priv/plts/*.plt.hash
-          !coverage.xml           
-        TargetFolder: '$(Build.ArtifactStagingDirectory)'
-        CleanTargetFolder: true
-    - task: PublishBuildArtifacts@1
-      inputs:
-        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-        ArtifactName: 'drop'
-        publishLocation: 'Container'
 
 - stage: Acceptance_testing_stage
   dependsOn: Commit_stage
