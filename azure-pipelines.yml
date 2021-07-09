@@ -34,9 +34,11 @@ pool:
 variables:
   MIX_ENV: 'test' 
 stages:
-- stage: Commit_stage
+- stage: commit_stage
+  displayName: Commit stage
   jobs: 
-  - job: Build
+  - job: build_sources
+    displayName: Build sources
     services:
       postgres: postgres
     steps:
@@ -88,17 +90,16 @@ stages:
         echo save artifact Quellcode
       displayName: DeployGigalixir
 
-  - job: Build_antora_docu
+  - job: build_documentation
+    displayName: Build documentation
     steps:
     - bash: sudo npm i -g @antora/cli @antora/site-generator-default
-      displayName: Setup Antora    
-    - bash: antora -v
-      displayName: Test Antora
+      displayName: Setup antora        
     - bash: antora --fetch antora-playbook.yml
-      displayName: Build documentation 
+      displayName: Build playbook 
 
 - stage: Acceptance_testing_stage
-  dependsOn: Commit_stage
+  dependsOn: commit_stage
   jobs:
   - job: Acceptance_testing
     steps:
