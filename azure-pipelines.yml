@@ -87,18 +87,13 @@ stages:
         echo deploy to gigalixir
         echo save artifact Quellcode
       displayName: DeployGigalixir
-    - bash: npm i --prefix ./assets  @antora/cli @antora/site-generator-default
-      displayName: install antora
-    - bash: cd assets && $(npm bin)/antora -v && cd ..
-      displayName: test antora
-    - bash: echo build doku  
-      displayName: echo
 
   - job: Build_antora_docu
     steps:
-    #- bash: npm i --prefix ./assests  @antora/cli @antora/site-generator-default
-    #- bash: $(npm bin)/antora -v
-    - bash: echo build doku
+    - bash: npm i --prefix ./assests  @antora/cli @antora/site-generator-default
+      displayName: Setup Antora
+    - bash: cd assets && $(npm bin)/antora -v && cd ..
+      displayName: Test Antora
 
 - stage: Acceptance_testing_stage
   dependsOn: Commit_stage
