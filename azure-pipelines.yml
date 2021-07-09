@@ -87,10 +87,6 @@ stages:
         echo deploy to gigalixir
         echo save artifact Quellcode
       displayName: DeployGigalixir
-    - bash: sudo npm i -g @antora/cli @antora/site-generator-default
-      displayName: Setup Antora    
-    - bash: antora -v
-      displayName: Test Antora
 
   - job: Build_antora_docu
     steps:
@@ -98,6 +94,8 @@ stages:
       displayName: Setup Antora    
     - bash: antora -v
       displayName: Test Antora
+    - bash: antora --fetch antora-playbook.yml
+      displayName: Build documentation 
 
 - stage: Acceptance_testing_stage
   dependsOn: Commit_stage
