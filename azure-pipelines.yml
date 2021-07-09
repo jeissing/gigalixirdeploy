@@ -96,6 +96,7 @@ stages:
     - bash: sudo npm i -g @antora/cli @antora/site-generator-default
       displayName: Setup antora        
     - bash: antora --fetch antora-playbook.yml
+    
       displayName: Build playbook 
 
 - stage: acceptance_test_stage
@@ -169,7 +170,7 @@ stages:
         onTimeout: 'reject'
 
 - stage: release_stage
-  displayName: Release stage
+  displayName: Release Stage
   dependsOn: release_aproval_stage
   jobs:
   - deployment: DeployGiga
