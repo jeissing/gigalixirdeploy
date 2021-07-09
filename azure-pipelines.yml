@@ -94,9 +94,9 @@ stages:
 
   - job: Build_antora_docu
     steps:
-    - bash: npm i --prefix ./assests  @antora/cli @antora/site-generator-default
+    - bash: sudo npm i -g --prefix ./assests  @antora/cli @antora/site-generator-default
       displayName: Setup Antora
-    - bash: cd assets && $(npm bin)/antora -v && cd ..
+    - bash: antora -v 
       displayName: Test Antora
 
 - stage: Acceptance_testing_stage
@@ -104,6 +104,7 @@ stages:
   jobs:
   - job: Acceptance_testing
     steps:
+
     - script: | 
         echo Create App -Cluster the code!
         echo Execute Acceptante test BDD
