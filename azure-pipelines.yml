@@ -87,6 +87,9 @@ stages:
         echo deploy to gigalixir
         echo save artifact Quellcode
       displayName: DeployGigalixir
+  - job: Build_antora_docu
+    steps:
+    - bash: echo build doku
 
 - stage: Acceptance_testing_stage
   dependsOn: Commit_stage
