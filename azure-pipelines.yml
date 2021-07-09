@@ -88,16 +88,15 @@ stages:
         echo save artifact Quellcode
       displayName: DeployGigalixir
     - bash: sudo npm i -g @antora/cli @antora/site-generator-default
-      displayName: Setup Antora
-    #- bash: cd assets && $(npm bin)/antora -v && cd ..
+      displayName: Setup Antora    
     - bash: antora -v
       displayName: Test Antora
 
   - job: Build_antora_docu
     steps:
-    - bash: sudo npm i -g --prefix ./assests  @antora/cli @antora/site-generator-default
-      displayName: Setup Antora
-    - bash: antora -v 
+    - bash: sudo npm i -g @antora/cli @antora/site-generator-default
+      displayName: Setup Antora    
+    - bash: antora -v
       displayName: Test Antora
 
 - stage: Acceptance_testing_stage
