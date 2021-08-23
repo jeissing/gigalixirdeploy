@@ -34,9 +34,11 @@ pool:
 variables:
   MIX_ENV: 'test' 
 stages:
-- stage: Commit_stage
+- stage: commit_stage
+  displayName: Commit Stage
   jobs: 
-  - job: Build
+  - job: build_sources
+    displayName: Build sources
     services:
       postgres: postgres
     steps:
@@ -88,20 +90,43 @@ stages:
         echo save artifact Quellcode
       displayName: DeployGigalixir
 
-- stage: Acceptance_testing_stage
-  dependsOn: Commit_stage
+  - job: build_documentation
+    displayName: Build documentation
+    steps:
+    - bash: sudo npm i -g @antora/cli @antora/site-generator-default
+      displayName: Setup antora        
+    - bash: antora --fetch antora-playbook.yml
+      displayName: Build playbook 
+    - task: CopyFiles@2
+      displayName: Copy docu site to stating directory 
+      inputs:
+        SourceFolder: '$(Build.SourcesDirectory)'
+        Contents: 'build/site/**/*'
+        TargetFolder: '$(Build.ArtifactStagingDirectory)'
+        CleanTargetFolder: true
+    - task: PublishBuildArtifacts@1
+      displayName: Publish docu site to artifact store
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'docusitedrop'
+        publishLocation: 'Container'  
+
+- stage: acceptance_test_stage
+  displayName: Acceptance Test Stage
+  dependsOn: commit_stage
   jobs:
   - job: Acceptance_testing
     steps:
+
     - script: | 
         echo Create App -Cluster the code!
         echo Execute Acceptante test BDD
         echo generate HAR File for Capacity tests
 
-- stage: Capacity_testing_stage
-  displayName: Capacity Testing Stage
+- stage: capacity_test_stage
+  displayName: Capacity Test Stage
   condition: and(succeeded(), in(variables['Build.Reason'], 'Schedule', 'Manual'))
-  dependsOn: Acceptance_testing_stage
+  dependsOn: acceptance_test_stage
   jobs:
   - deployment: Capacity_testing
     displayName: Capacity Testing
@@ -115,9 +140,9 @@ stages:
           - script: |
               echo nightly run on clean cluster optional hotfix 
 
-- stage: Manual_testing_stage
-  displayName: Manual Testing Stage
-  dependsOn: Capacity_testing_stage
+- stage: manual_test_stage
+  displayName: Manual Test Stage
+  dependsOn: capacity_test_stage
   jobs:
   - deployment: Manual_testing
     displayName: Manual Testing    
@@ -141,8 +166,9 @@ stages:
           instructions: 'Please validate the build and resume, if bug reject'
           onTimeout: 'reject'
 
-- stage: Release_freigabe_stage
-  dependsOn: Manual_testing_stage
+- stage: release_aproval_stage
+  displayName: Release Aproval Stage
+  dependsOn: manual_test_stage
   jobs:
   - job: Release_freigabe
     displayName: Release Freigabe
@@ -155,8 +181,9 @@ stages:
         instructions: 'Bitte geben Sie das Release frei.'
         onTimeout: 'reject'
 
-- stage: Release_stage
-  dependsOn: Release_freigabe_stage
+- stage: release_stage
+  displayName: Release Stage
+  dependsOn: release_aproval_stage
   jobs:
   - deployment: DeployGiga
     displayName: Deploy to produktion
