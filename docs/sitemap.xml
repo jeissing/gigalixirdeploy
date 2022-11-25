@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<sitemap>
-<loc>https://jeissing.github.io/gigalixirdeploy/docs/sitemap-component-a.xml</loc>
-</sitemap>
-<sitemap>
-<loc>https://jeissing.github.io/gigalixirdeploy/docs/sitemap-component-b.xml</loc>
-</sitemap>
-</sitemapindex>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>https://jeissing.github.io/gigalixirdeploy/docs/component-b/2.0/index.html</loc>
+<lastmod>2022-11-25T18:18:59.412Z</lastmod>
+</url>
+<url>
+<loc>https://jeissing.github.io/gigalixirdeploy/docs/component-b/2.0/module-one/overview.html</loc>
+<lastmod>2022-11-25T18:18:59.412Z</lastmod>
+</url>
+<url>
+<loc>https://jeissing.github.io/gigalixirdeploy/docs/component-b/1.0/index.html</loc>
+<lastmod>2022-11-25T18:18:59.412Z</lastmod>
+</url>
+<url>
+<loc>https://jeissing.github.io/gigalixirdeploy/docs/component-b/1.0/module-one/overview.html</loc>
+<lastmod>2022-11-25T18:18:59.412Z</lastmod>
+</url>
+</urlset>
