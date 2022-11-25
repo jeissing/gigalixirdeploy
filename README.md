@@ -28,8 +28,6 @@
         gigalixir pg:destroy -y -d ${{ env.DATABASE_ID}}
         gigalixir apps:destroy -y --app_name myapp-${{ env.APP_ID }}
         echo $DATABASE_ID
-# test
-- again fuck again again 
 
 
 # New 
